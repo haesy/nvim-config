@@ -36,8 +36,13 @@ vim.g.loaded_netrwPlugin = 1
 
 require("catppuccin").setup({
     flavour = "mocha",
+    transparent_background = true,
 })
 vim.cmd.colorscheme "catppuccin"
+
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "none" })
 
 require("lualine").setup({
     options = {
@@ -52,6 +57,9 @@ require("nvim-autopairs").setup({
 require("nvim-tree").setup({
     renderer = {
         group_empty = true,
+    },
+    filters = {
+        dotfiles = true,
     },
 })
 
