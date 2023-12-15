@@ -12,6 +12,7 @@ return require('packer').startup(function(user)
     -- nicer directory/file tree
     use { "nvim-tree/nvim-tree.lua" }
     use { "nvim-tree/nvim-web-devicons" }
+    
     -- fast incremental parser 
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -23,6 +24,12 @@ return require('packer').startup(function(user)
             update()
         end,
     }
+    -- different colors for different delimiters
+    use { "https://gitlab.com/HiPhish/rainbow-delimiters.nvim.git", as = "rainbow-delimiters" }
+    -- playground for tree-sitter
+    use { "nvim-treesitter/playground" }
+    -- autoclose/-rename HTML/XML tags
+    use { "windwp/nvim-ts-autotag" }
     -- fuzzy find stuff
     use { 
         "nvim-telescope/telescope.nvim",

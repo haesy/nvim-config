@@ -25,6 +25,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 vim.o.background = "dark"
+vim.opt.guicursor = ""
 
 vim.o.wildmenu = true
 vim.o.wildmode = "longest:full,full"
@@ -39,10 +40,6 @@ require("catppuccin").setup({
     transparent_background = true,
 })
 vim.cmd.colorscheme "catppuccin"
-
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "none" })
 
 require("lualine").setup({
     options = {
@@ -66,8 +63,15 @@ require("nvim-tree").setup({
 require("nvim-treesitter.configs").setup({
     ensure_installed = { 
         "c", "lua", "vim", "vimdoc", "query", -- recommended, should always be available
-        "go", "zig", "java", "kotlin",
+        "go", "zig", "java", "kotlin", "rust",
         "javascript", "typescript", "html", "css", "tsx",
         "xml", "json", "yaml", "toml"
     },
+    autoinstall = true,
+    hightlight = { enable = true },
+    indent = { enable = true },
+    playground = { enable = true },
+    autotag = { enable = true},
 })
+
+require("rainbow-delimiters.setup").setup({})
